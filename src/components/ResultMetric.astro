@@ -1,0 +1,16 @@
+---
+import type { Metric } from "../data/projects";
+
+type Props = {
+  metric: Metric;
+  compact?: boolean;
+};
+
+const { metric, compact = false } = Astro.props;
+---
+
+<div class:list={["rounded-2xl border border-ink/10 bg-white/80", compact ? "p-4" : "p-5"]}>
+  <p class="text-xs font-bold uppercase tracking-[0.12em] text-muted">{metric.label}</p>
+  <p class:list={["mt-2 font-black text-ink", compact ? "text-xl" : "text-2xl"]}>{metric.value}</p>
+  {metric.description && <p class="mt-2 text-sm text-muted">{metric.description}</p>}
+</div>

@@ -1,0 +1,148 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ResultMetric from "../components/ResultMetric.astro";
+import TagList from "../components/TagList.astro";
+import type { Project } from "../data/projects";
+
+type Props = {
+  project: Project;
+  backHref: string;
+};
+
+const { project, backHref } = Astro.props;
+---
+
+<BaseLayout
+  title={`${project.title} | 王泓懿`}
+  description={project.subtitle}
+>
+  <Header />
+  <main class="pb-20 pt-28">
+    <section class="section-shell">
+      <a class="focus-ring mb-8 inline-flex rounded-full border border-ink/10 bg-white/70 px-4 py-2 text-sm font-semibold text-muted transition hover:border-ink/20 hover:text-ink" href={backHref}>
+        Back to Projects
+      </a>
+
+      <div class="grid gap-8 lg:grid-cols-[1fr_360px] lg:items-start">
+        <div>
+          <p class="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-cocoa">Project Detail</p>
+          <h1 class="text-4xl font-black leading-tight md:text-6xl">{project.title}</h1>
+          <p class="mt-5 max-w-3xl text-lg leading-8 text-muted">{project.subtitle}</p>
+          <div class="mt-6">
+            <TagList tags={project.tags} />
+          </div>
+        </div>
+
+        <div class="soft-card rounded-2xl p-5">
+          <p class="mb-4 text-sm font-bold text-muted">Key Results</p>
+          <div class="grid gap-3">
+            {project.metrics.map((metric) => <ResultMetric metric={metric} compact />)}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell mt-14 grid gap-6 lg:grid-cols-[260px_1fr]">
+      <aside class="hidden lg:block">
+        <nav class="sticky top-28 grid gap-2 text-sm font-semibold text-muted">
+          <a class="rounded-full px-4 py-2 hover:bg-white/70 hover:text-ink" href="#overview">Overview</a>
+          <a class="rounded-full px-4 py-2 hover:bg-white/70 hover:text-ink" href="#problem">Problem</a>
+          <a class="rounded-full px-4 py-2 hover:bg-white/70 hover:text-ink" href="#approach">Technical Approach</a>
+          <a class="rounded-full px-4 py-2 hover:bg-white/70 hover:text-ink" href="#result">Result</a>
+          <a class="rounded-full px-4 py-2 hover:bg-white/70 hover:text-ink" href="#skills">Related Skills</a>
+        </nav>
+      </aside>
+
+      <div class="grid gap-6">
+        <section id="overview" class="soft-card rounded-2xl p-6 md:p-8">
+          <h2 class="text-2xl font-black">Overview</h2>
+          <p class="mt-4 leading-8 text-muted">{project.overview}</p>
+          <h3 class="mt-8 text-lg font-black">Background</h3>
+          <p class="mt-3 leading-8 text-muted">{project.background}</p>
+          {project.whyBuilt && (
+            <>
+              <h3 class="mt-8 text-lg font-black">Why I Built This</h3>
+              <p class="mt-3 leading-8 text-muted">{project.whyBuilt}</p>
+            </>
+          )}
+        </section>
+
+        <section id="problem" class="soft-card rounded-2xl p-6 md:p-8">
+          <h2 class="text-2xl font-black">Problem</h2>
+          <ul class="mt-5 grid gap-3">
+            {project.problem.map((item) => (
+              <li class="flex gap-3 rounded-xl bg-white/70 p-4 text-muted">
+                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-cocoa"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          {project.myRole && (
+            <>
+              <h3 class="mt-8 text-lg font-black">My Role</h3>
+              <p class="mt-3 leading-8 text-muted">{project.myRole}</p>
+            </>
+          )}
+        </section>
+
+        <section id="approach" class="soft-card rounded-2xl p-6 md:p-8">
+          <h2 class="text-2xl font-black">Technical Approach</h2>
+          <div class="mt-5 grid gap-3">
+            {project.technicalApproach.map((item) => (
+              <p class="rounded-xl bg-white/70 p-4 leading-8 text-muted">{item}</p>
+            ))}
+          </div>
+          <div class="mt-6 rounded-2xl border border-ink/10 bg-ink p-5 text-cream">
+            <p class="mb-3 text-sm font-bold text-lemon">Architecture Diagram</p>
+            <pre class="text-sm leading-7"><code>{project.diagram}</code></pre>
+          </div>
+
+          {project.mainFeatures && (
+            <div class="mt-6">
+              <h3 class="text-lg font-black">Main Features</h3>
+              <div class="mt-3 flex flex-wrap gap-2">
+                {project.mainFeatures.map((feature) => <span class="rounded-full bg-mint px-3 py-2 text-sm font-semibold text-ink">{feature}</span>)}
+              </div>
+            </div>
+          )}
+
+          {project.statusList && (
+            <div class="mt-6">
+              <h3 class="text-lg font-black">Status List</h3>
+              <div class="mt-3 flex flex-wrap gap-2">
+                {project.statusList.map((status) => <span class="rounded-full bg-sky px-3 py-2 text-sm font-semibold text-ink">{status}</span>)}
+              </div>
+            </div>
+          )}
+        </section>
+
+        <section id="result" class="soft-card rounded-2xl p-6 md:p-8">
+          <h2 class="text-2xl font-black">Result</h2>
+          <p class="mt-4 leading-8 text-muted">{project.result}</p>
+          {project.learned && (
+            <>
+              <h3 class="mt-8 text-lg font-black">What I Learned</h3>
+              <p class="mt-3 leading-8 text-muted">{project.learned}</p>
+            </>
+          )}
+          {project.interviewPurpose && (
+            <>
+              <h3 class="mt-8 text-lg font-black">Purpose for Interview</h3>
+              <p class="mt-3 leading-8 text-muted">{project.interviewPurpose}</p>
+            </>
+          )}
+        </section>
+
+        <section id="skills" class="soft-card rounded-2xl p-6 md:p-8">
+          <h2 class="text-2xl font-black">Related Skills</h2>
+          <div class="mt-5">
+            <TagList tags={project.relatedSkills} />
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

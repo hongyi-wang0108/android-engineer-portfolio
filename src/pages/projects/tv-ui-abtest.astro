@@ -1,0 +1,11 @@
+---
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import { getProject } from "../../data/projects";
+
+const project = getProject("tv-ui-abtest");
+if (!project) {
+  throw new Error("Project not found: tv-ui-abtest");
+}
+---
+
+<ProjectLayout project={project} backHref="/#projects" />

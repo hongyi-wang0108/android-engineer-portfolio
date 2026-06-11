@@ -1,0 +1,174 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import SkillGroup from "../components/SkillGroup.astro";
+import { coreProjects, personalProjects } from "../data/projects";
+import { currentStack, skillGroups } from "../data/skills";
+---
+
+<BaseLayout
+  title="王泓懿 | Android Client Engineer"
+  description="Androidエンジニアとして、大規模アプリ開発、SDK安定性改善、ログイン基盤刷新、通信コスト最適化に取り組んできました。"
+>
+  <Header />
+  <main>
+    <section class="section-shell grid min-h-[calc(100vh-40px)] gap-10 pb-16 pt-32 lg:grid-cols-[1fr_410px] lg:items-center">
+      <div>
+        <p class="mb-4 text-sm font-black uppercase tracking-[0.2em] text-cocoa">Android Engineer Portfolio</p>
+        <h1 class="max-w-4xl text-5xl font-black leading-[1.05] md:text-7xl">
+          王泓懿
+          <span class="mt-3 block text-3xl text-muted md:text-5xl">Android Client Engineer</span>
+        </h1>
+        <p class="mt-7 max-w-3xl text-lg leading-8 text-muted md:text-xl md:leading-9">
+          大規模Androidアプリ開発、SDK安定性改善、ログイン基盤刷新、通信コスト最適化に取り組んできました。
+        </p>
+        <div class="mt-7 flex flex-wrap gap-2">
+          {["Android", "Kotlin", "Java", "SDK", "Stability", "Performance", "Cross-team Collaboration"].map((tag) => (
+            <span class="rounded-full bg-white/75 px-4 py-2 text-sm font-bold text-muted shadow-sm">{tag}</span>
+          ))}
+        </div>
+        <div class="mt-9 flex flex-wrap gap-3">
+          <a class="focus-ring rounded-full bg-ink px-6 py-3 text-sm font-black text-cream transition hover:bg-cocoa" href="#projects">
+            View Projects
+          </a>
+          <a class="focus-ring rounded-full border border-ink/15 bg-white/75 px-6 py-3 text-sm font-black text-ink transition hover:border-ink/30" href="#contact">
+            Contact
+          </a>
+        </div>
+      </div>
+
+      <div class="soft-card relative overflow-hidden rounded-3xl p-6">
+        <div class="absolute right-5 top-5 h-16 w-16 rounded-full bg-lemon/80"></div>
+        <div class="absolute bottom-8 left-8 h-20 w-20 rounded-full bg-sky/80"></div>
+        <div class="relative rounded-3xl bg-white/80 p-6">
+          <div class="mx-auto grid h-44 w-44 place-items-center rounded-full bg-mint">
+            <div class="relative h-28 w-32 rounded-[2rem] bg-white shadow-soft">
+              <div class="absolute -left-3 top-3 h-11 w-9 -rotate-12 rounded-full bg-peach"></div>
+              <div class="absolute -right-3 top-3 h-11 w-9 rotate-12 rounded-full bg-peach"></div>
+              <div class="absolute left-9 top-11 h-3 w-3 rounded-full bg-ink"></div>
+              <div class="absolute right-9 top-11 h-3 w-3 rounded-full bg-ink"></div>
+              <div class="absolute left-1/2 top-16 h-4 w-5 -translate-x-1/2 rounded-full bg-cocoa"></div>
+              <div class="absolute bottom-7 left-1/2 h-5 w-14 -translate-x-1/2 rounded-b-full border-b-4 border-cocoa"></div>
+            </div>
+          </div>
+          <div class="mt-6 grid gap-3">
+            <div class="rounded-2xl bg-cream p-4">
+              <p class="text-xs font-bold uppercase tracking-[0.16em] text-muted">Core Strength</p>
+              <p class="mt-2 text-xl font-black">Stability, Architecture, Performance</p>
+            </div>
+            <div class="grid grid-cols-3 gap-3 text-center">
+              <div class="rounded-2xl bg-sky p-4">
+                <p class="text-2xl font-black">4</p>
+                <p class="mt-1 text-xs font-bold text-muted">Core Projects</p>
+              </div>
+              <div class="rounded-2xl bg-rose p-4">
+                <p class="text-2xl font-black">3Y</p>
+                <p class="mt-1 text-xs font-bold text-muted">Experience</p>
+              </div>
+              <div class="rounded-2xl bg-lemon p-4">
+                <p class="text-2xl font-black">JP</p>
+                <p class="mt-1 text-xs font-bold text-muted">Interview</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section-shell py-16">
+      <SectionTitle eyebrow="About" title="About" />
+      <div class="mt-8 grid gap-8 lg:grid-cols-[1fr_380px]">
+        <div class="soft-card rounded-2xl p-6 md:p-8">
+          <p class="text-lg leading-9 text-muted">
+            北京達佳互聯信息技術有限公司にて、約3年間Androidクライアントエンジニアとして従事しました。Kotlin / Java を用いた大規模インターネットサービスのAndroidアプリ開発を担当し、TV向けログイン基盤の刷新、IMSDKの障害分析基盤構築、ネットワーク通信コスト最適化などのプロジェクトに携わりました。機能開発だけでなく、安定性、保守性、パフォーマンス、チーム間連携を意識した開発を強みとしています。
+          </p>
+        </div>
+        <div class="grid gap-4">
+          {[
+            ["Stability Improvement", "障害分析、ログ設計、SOP整備を通じて、問題解決の再現性を高めました。"],
+            ["Architecture / Maintainability", "ログイン基盤刷新などを通じて、拡張性と保守性を意識した設計改善に取り組みました。"],
+            ["Performance / Cost Optimization", "通信量削減や圧縮対応により、サービス運用コストの最適化に貢献しました。"]
+          ].map(([title, text]) => (
+            <div class="soft-card rounded-2xl p-5">
+              <h3 class="font-black">{title}</h3>
+              <p class="mt-2 leading-7 text-muted">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section-shell py-16">
+      <SectionTitle
+        eyebrow="Core Projects"
+        title="Core Projects"
+        subtitle="職務経歴書だけでは伝わりにくい、担当範囲・技術的な工夫・成果を整理しています。"
+      />
+      <div class="mt-9 grid gap-6 md:grid-cols-2">
+        {coreProjects.map((project) => <ProjectCard project={project} href={`/projects/${project.slug}`} />)}
+      </div>
+    </section>
+
+    <section class="section-shell py-16">
+      <SectionTitle
+        eyebrow="Personal Projects"
+        title="Personal Projects"
+        subtitle="現在、日本でのAndroidエンジニア転職に向けて、Modern Android技術スタックを用いた個人開発にも取り組んでいます。"
+      />
+      <div class="mt-9 grid gap-6">
+        {personalProjects.map((project) => <ProjectCard project={project} href={`/personal-projects/${project.slug}`} />)}
+      </div>
+    </section>
+
+    <section id="skills" class="section-shell py-16">
+      <SectionTitle eyebrow="Skills" title="Skills" />
+      <div class="mt-9 grid gap-5 md:grid-cols-2">
+        {skillGroups.map((group) => <SkillGroup title={group.title} skills={group.skills} />)}
+      </div>
+      <div class="soft-card mt-6 rounded-2xl p-6 md:p-8">
+        <h3 class="text-2xl font-black">Current Stack</h3>
+        <p class="mt-3 leading-8 text-muted">
+          永住申請アプリを継続開発しており、Jetpack Compose、Kotlin Coroutines、Room、Hilt、Material 3 に加えて、GitHub Actions を使った CI / CD も実装・運用しています。
+        </p>
+        <div class="mt-5 flex flex-wrap gap-2">
+          {currentStack.map((skill) => (
+            <span class="rounded-full bg-mint px-3 py-2 text-sm font-bold text-ink">{skill}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell py-16">
+      <SectionTitle eyebrow="Career" title="Career Summary" />
+      <div class="soft-card mt-9 rounded-2xl p-6 md:p-8">
+        <div class="grid gap-4 border-l-4 border-mint pl-6">
+          <p class="text-sm font-black text-cocoa">2022.07 - 2025.12</p>
+          <h3 class="text-2xl font-black">北京達佳互聯信息技術有限公司 / Kwai - Kuaishou</h3>
+          <p class="font-bold text-muted">Android Client Engineer</p>
+          <p class="leading-8 text-muted">
+            大規模インターネットサービスのAndroidアプリ開発に従事。TV向け機能開発、ログイン基盤刷新、IMSDK安定性改善、通信コスト最適化などを担当。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-shell pb-24 pt-16">
+      <div class="soft-card rounded-3xl p-6 md:p-10">
+        <SectionTitle eyebrow="Contact" title="Contact" />
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-muted">
+          Androidエンジニアとして、日本のサービス開発に長期的に携わりたいと考えています。ご連絡は以下よりお願いいたします。
+        </p>
+        <div class="mt-8 grid gap-4 md:grid-cols-2">
+          <a class="focus-ring rounded-2xl bg-white/80 p-5 font-bold text-ink transition hover:bg-mint" href="mailto:yukiwangsnow0108@gmail.com">Email: yukiwangsnow0108@gmail.com</a>
+          <a class="focus-ring rounded-2xl bg-white/80 p-5 font-bold text-ink transition hover:bg-mint" href="https://github.com/hongyi-wang0108/eijyo_tracker" target="_blank" rel="noreferrer">GitHub: hongyi-wang0108/eijyo_tracker</a>
+          <div class="rounded-2xl bg-white/80 p-5 font-bold text-muted">LinkedIn: 後で設定</div>
+          <div class="rounded-2xl bg-white/80 p-5 font-bold text-muted">Location: Tokyo, Japan</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

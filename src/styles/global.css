@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  font-family: Inter, "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+  background: #fffaf2;
+  color: #263238;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(216, 236, 255, 0.78), transparent 28rem),
+    radial-gradient(circle at 92% 0%, rgba(255, 220, 232, 0.68), transparent 24rem),
+    linear-gradient(180deg, #fffaf2 0%, #f8fbff 48%, #fffaf2 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.section-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.soft-card {
+  border: 1px solid rgba(38, 50, 56, 0.1);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 20px 55px rgba(74, 92, 106, 0.1);
+  backdrop-filter: blur(14px);
+}
+
+.focus-ring:focus-visible {
+  outline: 3px solid #7cc7b3;
+  outline-offset: 3px;
+}
+
+pre {
+  overflow-x: auto;
+}

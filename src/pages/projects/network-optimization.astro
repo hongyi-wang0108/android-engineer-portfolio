@@ -1,0 +1,11 @@
+---
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import { getProject } from "../../data/projects";
+
+const project = getProject("network-optimization");
+if (!project) {
+  throw new Error("Project not found: network-optimization");
+}
+---
+
+<ProjectLayout project={project} backHref="/#projects" />

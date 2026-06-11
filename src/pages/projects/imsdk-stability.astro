@@ -1,0 +1,11 @@
+---
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import { getProject } from "../../data/projects";
+
+const project = getProject("imsdk-stability");
+if (!project) {
+  throw new Error("Project not found: imsdk-stability");
+}
+---
+
+<ProjectLayout project={project} backHref="/#projects" />

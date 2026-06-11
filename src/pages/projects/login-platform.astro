@@ -1,0 +1,11 @@
+---
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import { getProject } from "../../data/projects";
+
+const project = getProject("login-platform");
+if (!project) {
+  throw new Error("Project not found: login-platform");
+}
+---
+
+<ProjectLayout project={project} backHref="/#projects" />
