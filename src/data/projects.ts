@@ -81,7 +81,7 @@ export const projects: Project[] = [
     subtitle: "Brotli辞書圧縮と上行パラメータ削減による通信量削減",
     tags: ["Network", "Performance", "Brotli", "Cost Optimization", "Fallback", "Gradual Release"],
     metrics: [
-      { label: "月間CDNコスト", value: "約1,800万円削減見込み", description: "約76.95万元人民元" },
+      { label: "月間CDNコスト", value: "1,800万円削減見込み", description: "76.95万元人民元" },
       { label: "対象API帯域", value: "約61%削減" },
       { label: "ピーク帯域", value: "208.1Gbps -> 81Gbps" },
       { label: "上りログ系API", value: "約400万円削減見込み", description: "約17.1万元人民元" }
