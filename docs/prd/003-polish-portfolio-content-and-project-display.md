@@ -33,7 +33,6 @@ Improve the homepage and project detail content so that Android experience, mult
 
 - Real Google Play URL
 - Real app screenshots
-- Exact cost-saving amount
 - Full Japanese copy proofreading
 
 ## 5. Entry points
@@ -74,8 +73,8 @@ No new animation is introduced.
 
 - If Google Play URL is not ready, show `公開準備中`
 - If app screenshots are not ready, show explicit placeholders
-- Do not invent exact money saved if the amount is not public
-- Avoid exposing internal company data or exact confidential cost figures
+- Use the same cost-saving figures as the resume when the user has confirmed they are suitable for interview materials
+- Avoid exposing additional internal company data beyond resume-safe figures
 
 ## 10. Data and content impact
 
@@ -104,4 +103,3 @@ The current data-driven project model is sufficient, but it needs optional field
 - Skills no longer include weak or outdated descriptions
 - Network and TV project metrics are clearer
 - Personal project has future-ready store and image sections
-

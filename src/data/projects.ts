@@ -81,10 +81,10 @@ export const projects: Project[] = [
     subtitle: "Brotli辞書圧縮と上行パラメータ削減による通信量削減",
     tags: ["Network", "Performance", "Brotli", "Cost Optimization", "Fallback", "Gradual Release"],
     metrics: [
-      { label: "Cost Impact", value: "CDNコスト削減に貢献", description: "具体金額は非公開" },
+      { label: "月間CDNコスト", value: "約1,800万円削減見込み", description: "約76.95万元人民元" },
       { label: "対象API帯域", value: "約61%削減" },
       { label: "ピーク帯域", value: "208.1Gbps -> 81Gbps" },
-      { label: "上行通信", value: "300Gbps -> 282Gbps" }
+      { label: "上りログ系API", value: "約400万円削減見込み", description: "約17.1万元人民元" }
     ],
     overview:
       "下行通信のBrotli辞書圧縮と上行パラメータ削減を通じて、Android側から通信コスト最適化に取り組みました。",
@@ -107,7 +107,7 @@ export const projects: Project[] = [
     diagram:
       "Client Request\n  -> Server Response with Brotli Dictionary Compression\n  -> Android Client\n      -> Verify md5\n      -> Decompress\n      -> Use Optimized Data\n      -> Fallback if Failed",
     result:
-      "対象APIの帯域は約61%削減され、ピーク帯域は 208.1Gbps から 81Gbps に低下しました。上行ログ系通信についても、平均 300Gbps から 282Gbps へ削減されました。具体的な金額は公開できませんが、CDN・帯域コスト削減に貢献しました。",
+      "対象下りAPIにおいて、AB実験ベースで下り帯域を約61%削減し、ピーク帯域を約208.1Gbpsから約81Gbpsへ削減しました。月間CDNコストは約76.95万元人民元（約1,800万円）の削減見込みとなりました。上りログ系APIについても、平均帯域を約300Gbpsから約282Gbpsへ削減し、月間約17.1万元人民元（約400万円）のコスト削減見込みに貢献しました。さらに、上り共通パラメータ削減および下りBrotli辞書圧縮の導入SOPを整備し、後続業務への展開に貢献しました。本プロジェクトは社内チーム表彰を受賞しました。",
     learned:
       "Android開発でもサービス全体の運用コストに貢献できることを学びました。性能改善では検証、fallback、段階的リリース、関係チームとの合意形成が重要でした。",
     relatedSkills: ["OkHttp", "Network Optimization", "Brotli", "Performance", "Fallback", "AB Test", "Gradual Release"]

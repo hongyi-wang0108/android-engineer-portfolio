@@ -9,6 +9,7 @@ All notable changes to this project should be tracked here.
 - Polished homepage content, project ordering, hero stats, skill descriptions, and GitHub contact link.
 - Updated IMSDK detail copy to emphasize ownership, troubleshooting flow, and cross-team standardization.
 - Added future-ready Google Play and app screenshot placeholders for the personal project.
+- Added resume-aligned cost reduction figures for the network optimization project.
 
 ### Fixed
 
