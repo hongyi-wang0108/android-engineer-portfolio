@@ -4,6 +4,12 @@ All notable changes to this project should be tracked here.
 
 ## [Unreleased]
 
+### Changed
+
+- Polished homepage content, project ordering, hero stats, skill descriptions, and GitHub contact link.
+- Updated IMSDK detail copy to emphasize ownership, troubleshooting flow, and cross-team standardization.
+- Added future-ready Google Play and app screenshot placeholders for the personal project.
+
 ### Fixed
 
 - Stabilized project card rendering during scroll by removing blur-backed glass styling and hover translation from project cards.

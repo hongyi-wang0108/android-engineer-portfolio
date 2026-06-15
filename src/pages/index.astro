@@ -7,6 +7,8 @@ import SectionTitle from "../components/SectionTitle.astro";
 import SkillGroup from "../components/SkillGroup.astro";
 import { coreProjects, personalProjects } from "../data/projects";
 import { currentStack, skillGroups } from "../data/skills";
+
+const chipColors = ["bg-mint", "bg-sky", "bg-rose", "bg-lemon", "bg-peach", "bg-cream"];
 ---
 
 <BaseLayout
@@ -57,7 +59,7 @@ import { currentStack, skillGroups } from "../data/skills";
           <div class="mt-6 grid gap-3">
             <div class="rounded-2xl bg-cream p-4">
               <p class="text-xs font-bold uppercase tracking-[0.16em] text-muted">Core Strength</p>
-              <p class="mt-2 text-xl font-black">Stability, Architecture, Performance</p>
+              <p class="mt-2 text-xl font-black">Stability, Architecture, TV / Pad / Smart Devices</p>
             </div>
             <div class="grid grid-cols-3 gap-3 text-center">
               <div class="rounded-2xl bg-sky p-4">
@@ -65,12 +67,12 @@ import { currentStack, skillGroups } from "../data/skills";
                 <p class="mt-1 text-xs font-bold text-muted">Core Projects</p>
               </div>
               <div class="rounded-2xl bg-rose p-4">
-                <p class="text-2xl font-black">3Y</p>
+                <p class="text-2xl font-black">3.5Y</p>
                 <p class="mt-1 text-xs font-bold text-muted">Experience</p>
               </div>
               <div class="rounded-2xl bg-lemon p-4">
-                <p class="text-2xl font-black">JP</p>
-                <p class="mt-1 text-xs font-bold text-muted">Interview</p>
+                <p class="text-2xl font-black">TV</p>
+                <p class="mt-1 text-xs font-bold text-muted">Pad / Smart Devices</p>
               </div>
             </div>
           </div>
@@ -83,7 +85,7 @@ import { currentStack, skillGroups } from "../data/skills";
       <div class="mt-8 grid gap-8 lg:grid-cols-[1fr_380px]">
         <div class="soft-card rounded-2xl p-6 md:p-8">
           <p class="text-lg leading-9 text-muted">
-            北京達佳互聯信息技術有限公司にて、約3年間Androidクライアントエンジニアとして従事しました。Kotlin / Java を用いた大規模インターネットサービスのAndroidアプリ開発を担当し、TV向けログイン基盤の刷新、IMSDKの障害分析基盤構築、ネットワーク通信コスト最適化などのプロジェクトに携わりました。機能開発だけでなく、安定性、保守性、パフォーマンス、チーム間連携を意識した開発を強みとしています。
+            北京達佳互聯信息技術有限公司にて、約3.5年間Androidクライアントエンジニアとして従事しました。Kotlin / Java を用いた大規模インターネットサービスのAndroidアプリ開発を担当し、TV・Pad・スマートデバイス向けの機能開発、ログイン基盤の刷新、IMSDKの障害分析基盤構築、ネットワーク通信コスト最適化などのプロジェクトに携わりました。機能開発だけでなく、安定性、保守性、マルチデバイス対応、チーム間連携を意識した開発を強みとしています。
           </p>
         </div>
         <div class="grid gap-4">
@@ -112,11 +114,11 @@ import { currentStack, skillGroups } from "../data/skills";
       </div>
     </section>
 
-    <section class="section-shell py-16">
+    <section id="personal-projects" class="section-shell py-16">
       <SectionTitle
         eyebrow="Personal Projects"
         title="Personal Projects"
-        subtitle="現在、日本でのAndroidエンジニア転職に向けて、Modern Android技術スタックを用いた個人開発にも取り組んでいます。"
+        subtitle="Modern Android技術スタックを用いて、Google Play公開を見据えた個人開発にも取り組んでいます。"
       />
       <div class="mt-9 grid gap-6">
         {personalProjects.map((project) => <ProjectCard project={project} href={`/personal-projects/${project.slug}`} />)}
@@ -134,8 +136,8 @@ import { currentStack, skillGroups } from "../data/skills";
           永住申請アプリを継続開発しており、Jetpack Compose、Kotlin Coroutines、Room、Hilt、Material 3 に加えて、GitHub Actions を使った CI / CD も実装・運用しています。
         </p>
         <div class="mt-5 flex flex-wrap gap-2">
-          {currentStack.map((skill) => (
-            <span class="rounded-full bg-mint px-3 py-2 text-sm font-bold text-ink">{skill}</span>
+          {currentStack.map((skill, index) => (
+            <span class:list={["rounded-full px-3 py-2 text-sm font-bold text-ink", chipColors[index % chipColors.length]]}>{skill}</span>
           ))}
         </div>
       </div>
@@ -163,7 +165,7 @@ import { currentStack, skillGroups } from "../data/skills";
         </p>
         <div class="mt-8 grid gap-4 md:grid-cols-2">
           <a class="focus-ring rounded-2xl bg-white/80 p-5 font-bold text-ink transition hover:bg-mint" href="mailto:yukiwangsnow0108@gmail.com">Email: yukiwangsnow0108@gmail.com</a>
-          <a class="focus-ring rounded-2xl bg-white/80 p-5 font-bold text-ink transition hover:bg-mint" href="https://github.com/hongyi-wang0108/eijyo_tracker" target="_blank" rel="noreferrer">GitHub: hongyi-wang0108/eijyo_tracker</a>
+          <a class="focus-ring rounded-2xl bg-white/80 p-5 font-bold text-ink transition hover:bg-mint" href="https://github.com/hongyi-wang0108" target="_blank" rel="noreferrer">GitHub: hongyi-wang0108</a>
           <div class="rounded-2xl bg-white/80 p-5 font-bold text-muted">LinkedIn: 後で設定</div>
           <div class="rounded-2xl bg-white/80 p-5 font-bold text-muted">Location: Tokyo, Japan</div>
         </div>
