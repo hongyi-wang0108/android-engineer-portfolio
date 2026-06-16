@@ -1,0 +1,11 @@
+---
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import { getProject } from "../../data/projects";
+
+const project = getProject("eijyo-tracker");
+if (!project) {
+  throw new Error("Project not found: eijyo-tracker");
+}
+---
+
+<ProjectLayout project={project} backHref="/#personal-projects" />

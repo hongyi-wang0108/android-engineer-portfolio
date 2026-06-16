@@ -1,11 +1,17 @@
 ---
-import ProjectLayout from "../../layouts/ProjectLayout.astro";
-import { getProject } from "../../data/projects";
-
-const project = getProject("pr-timeline-tracker");
-if (!project) {
-  throw new Error("Project not found: pr-timeline-tracker");
-}
+const target = "/personal-projects/eijyo-tracker/";
 ---
 
-<ProjectLayout project={project} backHref="/#projects" />
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={target} />
+    <title>Redirecting to 永住トラッカー</title>
+  </head>
+  <body>
+    <p>
+      This page moved to <a href={target}>永住トラッカー</a>.
+    </p>
+  </body>
+</html>
