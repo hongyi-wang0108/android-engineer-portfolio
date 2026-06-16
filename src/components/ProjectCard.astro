@@ -11,7 +11,7 @@ type Props = {
 const { project, href } = Astro.props;
 ---
 
-<article class="project-card group flex h-full flex-col rounded-2xl p-6 transition-shadow duration-200 hover:shadow-soft">
+<article class="project-card flex h-full flex-col rounded-2xl p-6">
   <div class="flex-1">
     <TagList tags={project.tags.slice(0, 5)} />
     <h3 class="mt-5 text-2xl font-black leading-snug">{project.title}</h3>
@@ -22,7 +22,7 @@ const { project, href } = Astro.props;
     {project.metrics.slice(0, 2).map((metric) => <ResultMetric metric={metric} compact />)}
   </div>
 
-  <a class="focus-ring mt-6 inline-flex w-fit items-center rounded-full bg-ink px-5 py-3 text-sm font-black text-cream transition group-hover:bg-cocoa" href={href}>
+  <a class="focus-ring mt-6 inline-flex w-fit items-center rounded-full bg-ink px-5 py-3 text-sm font-black text-cream transition hover:bg-cocoa" href={href}>
     View Details
   </a>
 </article>
